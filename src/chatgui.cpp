@@ -5,6 +5,7 @@
 #include "chatbot.h"
 #include "chatlogic.h"
 #include "chatgui.h"
+#include <iostream>
 
 // size of chatbot window
 const int width = 414;
@@ -104,8 +105,7 @@ BEGIN_EVENT_TABLE(ChatBotPanelDialog, wxPanel)
 EVT_PAINT(ChatBotPanelDialog::paintEvent) // catch paint events
 END_EVENT_TABLE()
 
-ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
-    : wxScrolledWindow(parent, id)
+ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id): wxScrolledWindow(parent, id)
 {
     // sizer will take care of determining the needed scroll size
     _dialogSizer = new wxBoxSizer(wxVERTICAL);
@@ -118,7 +118,8 @@ ChatBotPanelDialog::ChatBotPanelDialog(wxWindow *parent, wxWindowID id)
     ////
 
     // create chat logic instance
-    _chatLogic = new ChatLogic(); 
+//    _chatLogic = new ChatLogic();
+    _chatLogic = std::make_unique<ChatLogic>();
 
     // pass pointer to chatbot dialog so answers can be displayed in GUI
     _chatLogic->SetPanelDialogHandle(this);
@@ -134,8 +135,9 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
 {
     //// STUDENT CODE
     ////
+    std::cout << "I am here " << std::endl;
+//    delete _chatLogic;
 
-    delete _chatLogic;
 
     ////
     //// EOF STUDENT CODE
