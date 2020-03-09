@@ -27,9 +27,14 @@ public:
     ChatBot(std::string filename); // constructor WITH memory allocation
     ~ChatBot();
 
+    // Consider the rule of 5, there is a deconstructor,
+    // then, implement the other four
     //// STUDENT CODE
     ////
-
+    ChatBot(ChatBot & source);
+    ChatBot& operator= (ChatBot& source);
+    ChatBot(ChatBot&& source);
+    ChatBot& operator=(ChatBot&& source);
     ////
     //// EOF STUDENT CODE
 
