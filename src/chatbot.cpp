@@ -74,7 +74,6 @@ ChatBot::~ChatBot()
         source._rootNode = nullptr;
         _chatLogic = source._chatLogic;
         source._chatLogic = nullptr;
-
         std::cout << "The move constructor is called" << std::endl;
 }
 
@@ -87,7 +86,6 @@ ChatBot& ChatBot::operator=(ChatBot &&source){
         source._rootNode = nullptr;
         _chatLogic = source._chatLogic;
         source._chatLogic = nullptr;
-
         std::cout << "The move assignment operator is called" << std::endl;
         return *this;
 }
