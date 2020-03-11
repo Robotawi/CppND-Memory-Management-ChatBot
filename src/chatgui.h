@@ -18,7 +18,7 @@ private:
     //// STUDENT CODE
     ////
     //make a unique pointer her
-//    ChatLogic *_chatLogic;
+    // ChatLogic *_chatLogic;
     std::unique_ptr<ChatLogic> _chatLogic;
 
 
@@ -32,7 +32,8 @@ public:
 
     // getter / setter
 //    ChatLogic* GetChatLogicHandle() { return _chatLogic; }
-    ChatLogic* GetChatLogicHandle() { return _chatLogic.get(); }
+    std::unique_ptr<ChatLogic>& GetChatLogicHandle() { return _chatLogic; }
+//    ChatLogic* GetChatLogicHandle() { return _chatLogic.get(); }
 
     // events
     void paintEvent(wxPaintEvent &evt);

@@ -135,7 +135,6 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
 {
     //// STUDENT CODE
     ////
-    std::cout << "I am here " << std::endl;
 //    delete _chatLogic;
 
 
@@ -144,8 +143,7 @@ ChatBotPanelDialog::~ChatBotPanelDialog()
 }
 
 void ChatBotPanelDialog::AddDialogItem(wxString text, bool isFromUser)
-{
-    // add a single dialog element to the sizer
+{// add a single dialog element to the sizer
     ChatBotPanelDialogItem *item = new ChatBotPanelDialogItem(this, text, isFromUser);
     _dialogSizer->Add(item, 0, wxALL | (isFromUser == true ? wxALIGN_LEFT : wxALIGN_RIGHT), 8);
     _dialogSizer->Layout();
@@ -167,6 +165,7 @@ void ChatBotPanelDialog::PrintChatbotResponse(std::string response)
     // convert string into wxString and add dialog element
     wxString botText(response.c_str(), wxConvUTF8);
     AddDialogItem(botText, false);
+
 }
 
 void ChatBotPanelDialog::paintEvent(wxPaintEvent &evt)
