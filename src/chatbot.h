@@ -4,8 +4,8 @@
 #include <wx/bitmap.h>
 #include <string>
 
-class GraphNode; // forward declaration
-class ChatLogic; // forward declaration
+class GraphNode;
+class ChatLogic;
 
 class ChatBot
 {
@@ -23,22 +23,16 @@ private:
 
 public:
     // constructors / destructors
-    ChatBot();                     // constructor WITHOUT memory allocation
-    ChatBot(std::string filename); // constructor WITH memory allocation
+    ChatBot();
+    ChatBot(std::string filename);
     ~ChatBot();
 
-    // Consider the rule of 5, there is a deconstructor,
-    // then, implement the other four
-    //// STUDENT CODE
-    ////
+    // Consider the rule of 5, there is a destructor,
     ChatBot(const ChatBot & source);
     ChatBot& operator= (const ChatBot& source);
     ChatBot(ChatBot&& source);
     ChatBot& operator=(ChatBot&& source);
-    ////
-    //// EOF STUDENT CODE
 
-    // getters / setters
     void SetCurrentNode(GraphNode *node);
     void SetRootNode(GraphNode *rootNode) { _rootNode = rootNode; }
     void SetChatLogicHandle(ChatLogic *chatLogic) { _chatLogic = chatLogic; }

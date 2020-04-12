@@ -42,8 +42,6 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
     ChatBot::ChatBot(const ChatBot &source) {
     _image = new wxBitmap();
     *_image = *source._image;
@@ -93,8 +91,6 @@ ChatBot& ChatBot::operator=(ChatBot &&source){
         std::cout << "The move assignment operator is called" << std::endl;
         return *this;
 }
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
